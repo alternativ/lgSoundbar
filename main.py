@@ -39,6 +39,7 @@ def returnhealth():
 def getinfo():
     if request.args.get("source"):
         requiredSource = (request.args.get("source"))
+        logging.info(f"switch requested to {requiredSource}")
         try:
             initialize_connection(os.getenv('SOUNDBARIP'))
             if requiredSource in ('KPN','Netflix','YouTube'):
