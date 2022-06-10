@@ -5,8 +5,8 @@ from flask_api import status
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=logging.DEBUG)
 logging.info(f"Connection to soundbar will be initialized on {os.getenv('SOUNDBARIP')}\
-            with a timeout of {os.getenv('SOUNDBARCHANGETIMEOUT')} seconds and a sleeptime \
-            of {os.getenv('SOUNDBARSLEEPTIME')} seconds")
+with a timeout of {os.getenv('SOUNDBARCHANGETIMEOUT')} seconds and a sleeptime \
+of {os.getenv('SOUNDBARSLEEPTIME')} seconds")
 
 def initialize_connection(ip):
     global speaker
