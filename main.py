@@ -46,7 +46,7 @@ def getinfo():
             else:
                 logging.info("No action required")
             time.sleep(float(os.getenv('SOUNDBARSLEEPTIME')))
-            logging.info(float(os.getenv('SOUNDBARCHANGETIMEOUT')))
+            logging.info(float(os.getenv('SOUNDBARSLEEPTIME')))
             if connectionSuccesful:
                 return(f"output: {commandResponse}", status.HTTP_200_OK)
             else:
