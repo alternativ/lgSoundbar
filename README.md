@@ -1,1 +1,2 @@
 # lgSoundbar
+export SOUNDBARIP="172.16.0.16" SOUNDBARCHANGETIMEOUT=0.1 SOUNDBARSLEEPTIME=1 && gunicorn -w 4 -b 0.0.0.0:8000 main:app -t 0
