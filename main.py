@@ -40,11 +40,11 @@ def getinfo():
             initialize_connection(os.getenv('SOUNDBARIP'))
             if requiredSource in ('KPN','Netflix','YouTube'):
                 speaker.set_func(0)
-                time.sleep(os.getenv('SOUNDBARCHANGETIMEOUT'))
+                time.sleep(float(os.getenv('SOUNDBARCHANGETIMEOUT')))
                 speaker.set_func(15)
             else:
                 logging.info("No action required")
-            time.sleep(os.getenv('SOUNDBARSLEEPTIME'))
+            time.sleep(float(os.getenv('SOUNDBARSLEEPTIME')))
             if connectionSuccesful:
                 return(f"output: {commandResponse}", status.HTTP_200_OK)
             else:
