@@ -37,6 +37,7 @@ def getinfo():
     if request.args.get("source"):
         requiredSource = (request.args.get("source"))
         try:
+            logging.info(os.getenv('SOUNDBAR'))
             initialize_connection(os.getenv('SOUNDBAR'))
             if requiredSource in ('KPN','Netflix','YouTube'):
                 speaker.set_func(15)
