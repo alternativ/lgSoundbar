@@ -1,4 +1,5 @@
 import temescal, logging, time
+import os
 from flask import Flask, request
 from flask_api import status
 
@@ -36,9 +37,8 @@ def getinfo():
     if request.args.get("source"):
         requiredSource = (request.args.get("source"))
         try:
-            initialize_connection("172.16.0.16")
+            initialize_connection(os.getenv('SOUNDBAR'))
             if requiredSource in ('KPN','Netflix','YouTube'):
-                # speaker.set_func(0)
                 speaker.set_func(15)
             else:
                 logging.info("No action required")
