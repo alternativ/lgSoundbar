@@ -3,7 +3,7 @@ import os
 from flask import Flask, request
 from flask_api import status
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=logging.DEBUG)
 
 def initialize_connection(ip):
     global speaker
@@ -42,7 +42,7 @@ def getinfo():
                 speaker.set_func(15)
             else:
                 logging.info("No action required")
-            time.sleep(0.1)
+            time.sleep(5)
             if connectionSuccesful:
                 return(f"output: {commandResponse}", status.HTTP_200_OK)
             else:
