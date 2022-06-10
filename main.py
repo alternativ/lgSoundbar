@@ -4,6 +4,9 @@ from flask import Flask, request
 from flask_api import status
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=logging.DEBUG)
+logging.info(f"Connection to soundbar will be initialized on {os.getenv('SOUNDBARIP')}\
+            with a timeout of {os.getenv('SOUNDBARCHANGETIMEOUT')} seconds and a sleeptime \
+            of {os.getenv('SOUNDBARSLEEPTIME')} seconds")
 
 def initialize_connection(ip):
     global speaker
@@ -41,12 +44,10 @@ def getinfo():
             if requiredSource in ('KPN','Netflix','YouTube'):
                 speaker.set_func(0)
                 time.sleep(float(os.getenv('SOUNDBARCHANGETIMEOUT')))
-                logging.info(float(os.getenv('SOUNDBARCHANGETIMEOUT')))
                 speaker.set_func(15)
             else:
                 logging.info("No action required")
             time.sleep(float(os.getenv('SOUNDBARSLEEPTIME')))
-            logging.info(float(os.getenv('SOUNDBARSLEEPTIME')))
             if connectionSuccesful:
                 return(f"output: {commandResponse}", status.HTTP_200_OK)
             else:
