@@ -42,7 +42,7 @@ def getinfo():
         logging.info(f"switch requested to {requiredSource}")
         try:
             initialize_connection(os.getenv('SOUNDBARIP'))
-            if requiredSource in ('KPN','Netflix','YouTube'):
+            if requiredSource in ('KPN','Netflix','YouTube','NPO'):
                 speaker.set_func(0)
                 time.sleep(float(os.getenv('SOUNDBARCHANGETIMEOUT')))
                 speaker.set_func(15)
